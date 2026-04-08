@@ -1,68 +1,55 @@
-
-import { Film, Search, Star, Play, Zap } from 'lucide-react';
+import { Play, Plus, Info, Star } from 'lucide-react';
 
 export const Hero = () => {
   return (
-    <div className="relative text-center py-20 bg-gradient-to-br from-slate-800/80 via-purple-900/30 to-pink-900/30 rounded-3xl mb-8 overflow-hidden backdrop-blur-sm border border-pink-500/20 shadow-2xl shadow-pink-500/10">
-      {/* Animated Background Pattern */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-10 left-10 w-24 h-24 border-2 border-pink-400 rounded-full animate-spin slow"></div>
-        <div className="absolute bottom-16 right-16 w-20 h-20 border-2 border-purple-400 rounded-full animate-spin slow reverse"></div>
-        <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-1/4 left-3/4 w-8 h-8 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-pulse delay-500"></div>
-        <div className="absolute top-1/4 right-1/3 w-6 h-6 bg-pink-400 rounded-full animate-bounce delay-700"></div>
-        
-        {/* Flowing Lines */}
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-pink-400/50 to-transparent animate-pulse"></div>
-        <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-purple-400/50 to-transparent animate-pulse delay-1000"></div>
-      </div>
+    <div className="relative w-full h-[450px] rounded-[2rem] overflow-hidden group mb-10">
+      <img 
+        src="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?w=1600&auto=format&fit=crop&q=80" 
+        alt="Stranger Things Featured" 
+        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-core-black via-core-black/60 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-core-black via-transparent to-transparent" />
       
-      <div className="relative z-10">
-        <div className="flex justify-center mb-8">
-          <div className="relative p-6 bg-gradient-to-br from-pink-500/20 to-purple-600/20 rounded-full backdrop-blur-sm border border-pink-400/30 shadow-lg shadow-pink-500/25">
-            <Film className="w-16 h-16 text-pink-400 animate-pulse" />
-            <div className="absolute inset-0 bg-gradient-to-br from-pink-400/10 to-purple-400/10 rounded-full animate-pulse"></div>
+      <div className="absolute inset-y-0 left-0 p-12 flex flex-col justify-center max-w-2xl space-y-6">
+        <div className="flex items-center space-x-3">
+          <span className="px-3 py-1 bg-plasma-orange/20 text-plasma-orange text-xs font-bold rounded-lg border border-plasma-orange/30">
+            NEW SEASON
+          </span>
+          <div className="flex items-center text-white/80 text-sm">
+            <Star className="w-4 h-4 text-plasma-orange fill-current mr-1" />
+            <span className="font-bold">4.9</span>
+            <span className="mx-2 opacity-50">|</span>
+            <span>2022</span>
+            <span className="mx-2 opacity-50">|</span>
+            <span>9 Episodes</span>
           </div>
         </div>
+
+        <h1 className="text-7xl font-black text-white tracking-tighter leading-none">
+          STRANGER <br /> <span className="text-plasma-orange">THINGS</span>
+        </h1>
         
-        <h2 className="text-6xl font-bold mb-6 bg-gradient-to-r from-pink-400 via-purple-400 to-pink-300 bg-clip-text text-transparent animate-fade-in">
-          Discover Amazing Movies
-        </h2>
-        
-        <p className="text-xl text-pink-200/90 mb-10 max-w-3xl mx-auto leading-relaxed">
-          Search through millions of movies, get detailed information, ratings, and cast details. 
-          Your next favorite movie is just a search away.
+        <p className="text-lg text-white/70 line-clamp-3 font-medium">
+          When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces and one strange little girl.
         </p>
-        
-        <div className="flex items-center justify-center space-x-12 text-pink-300/80">
-          <div className="flex flex-col items-center space-y-3 group cursor-pointer transition-all duration-300 hover:scale-110">
-            <div className="p-3 bg-gradient-to-br from-pink-500/20 to-purple-500/20 rounded-full group-hover:from-pink-500/30 group-hover:to-purple-500/30 transition-all duration-300">
-              <Search className="w-6 h-6 text-pink-400 group-hover:text-pink-300" />
-            </div>
-            <span className="text-sm font-medium">Search Movies</span>
-          </div>
-          
-          <div className="flex flex-col items-center space-y-3 group cursor-pointer transition-all duration-300 hover:scale-110">
-            <div className="p-3 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full group-hover:from-purple-500/30 group-hover:to-pink-500/30 transition-all duration-300">
-              <Star className="w-6 h-6 text-purple-400 group-hover:text-purple-300" />
-            </div>
-            <span className="text-sm font-medium">View Ratings</span>
-          </div>
-          
-          <div className="flex flex-col items-center space-y-3 group cursor-pointer transition-all duration-300 hover:scale-110">
-            <div className="p-3 bg-gradient-to-br from-pink-500/20 to-purple-500/20 rounded-full group-hover:from-pink-500/30 group-hover:to-purple-500/30 transition-all duration-300">
-              <Play className="w-6 h-6 text-pink-400 group-hover:text-pink-300" />
-            </div>
-            <span className="text-sm font-medium">Movie Details</span>
-          </div>
-          
-          <div className="flex flex-col items-center space-y-3 group cursor-pointer transition-all duration-300 hover:scale-110">
-            <div className="p-3 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full group-hover:from-purple-500/30 group-hover:to-pink-500/30 transition-all duration-300">
-              <Zap className="w-6 h-6 text-purple-400 group-hover:text-purple-300" />
-            </div>
-            <span className="text-sm font-medium">Fast & Modern</span>
-          </div>
+
+        <div className="flex items-center space-x-4 pt-4">
+          <button className="flex items-center space-x-2 px-8 py-4 bg-plasma-orange hover:bg-plasma-orange/90 text-white rounded-2xl font-bold transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-plasma-orange/30">
+            <Play className="w-5 h-5 fill-current" />
+            <span>Watch Now</span>
+          </button>
+          <button className="flex items-center space-x-2 px-8 py-4 bg-white/10 hover:bg-white/20 text-white rounded-2xl font-bold transition-all border border-white/10 backdrop-blur-md">
+            <Plus className="w-5 h-5" />
+            <span>My List</span>
+          </button>
         </div>
+      </div>
+
+      <div className="absolute bottom-8 right-12 flex space-x-2">
+        <div className="w-8 h-1 bg-plasma-orange rounded-full" />
+        <div className="w-4 h-1 bg-white/20 rounded-full" />
+        <div className="w-4 h-1 bg-white/20 rounded-full" />
       </div>
     </div>
   );

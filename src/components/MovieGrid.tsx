@@ -1,7 +1,6 @@
-
 import { MovieCard } from './MovieCard';
 import { MovieSkeleton } from './MovieSkeleton';
-import { Film } from 'lucide-react';
+import { Film, Search, Filter } from 'lucide-react';
 
 interface Movie {
   imdbID: string;
@@ -20,15 +19,15 @@ interface MovieGridProps {
 export const MovieGrid = ({ movies, onMovieSelect, isLoading }: MovieGridProps) => {
   if (isLoading) {
     return (
-      <div className="space-y-6">
-        <div className="flex items-center space-x-3">
-          <Film className="w-6 h-6 text-pink-400 animate-pulse" />
-          <h2 className="text-2xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
-            Searching Movies...
-          </h2>
+      <div className="space-y-8 mt-12">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+            <Search className="w-5 h-5 text-plasma-orange animate-pulse" />
+            <h2 className="text-xl font-bold text-white">Searching for your next favorite...</h2>
+          </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-          {Array.from({ length: 10 }).map((_, index) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          {Array.from({ length: 8 }).map((_, index) => (
             <MovieSkeleton key={index} />
           ))}
         </div>
@@ -41,22 +40,21 @@ export const MovieGrid = ({ movies, onMovieSelect, isLoading }: MovieGridProps) 
   }
 
   return (
-    <div className="space-y-8">
-      <div className="flex items-center space-x-3">
-        <div className="relative">
-          <Film className="w-7 h-7 text-pink-400" />
-          <div className="absolute inset-0 w-7 h-7 bg-pink-400/20 rounded-full blur-md animate-pulse"></div>
+    <div className="space-y-8 mt-12">
+      <div className="flex items-center justify-between">
+        <div className="flex items-center space-x-4">
+          <h2 className="text-2xl font-bold text-white tracking-tight">Search Results</h2>
+          <span className="px-3 py-1 bg-white/5 rounded-full text-xs text-white/40 font-medium">
+             {movies.length} matches
+          </span>
         </div>
-        <h2 className="text-3xl font-bold bg-gradient-to-r from-pink-400 via-purple-400 to-pink-300 bg-clip-text text-transparent">
-          Search Results
-        </h2>
-        <div className="flex-1 h-px bg-gradient-to-r from-pink-400/50 via-purple-400/30 to-transparent"></div>
-        <span className="text-pink-300/70 text-sm bg-slate-800/50 px-3 py-1 rounded-full border border-pink-500/20">
-          {movies.length} movies found
-        </span>
+        <button className="flex items-center space-x-2 px-4 py-2 bg-white/5 hover:bg-white/10 rounded-xl text-white/70 hover:text-white transition-all border border-white/5">
+           <Filter className="w-4 h-4" />
+           <span className="text-sm">Filter</span>
+        </button>
       </div>
       
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {movies.map((movie) => (
           <MovieCard
             key={movie.imdbID}

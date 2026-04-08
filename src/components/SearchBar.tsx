@@ -1,8 +1,5 @@
-
 import { useState } from 'react';
 import { Search, X } from 'lucide-react';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 
 interface SearchBarProps {
@@ -61,35 +58,33 @@ export const SearchBar = ({ onSearch, setLoading, onClearSelection }: SearchBarP
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex items-center space-x-2 max-w-md">
-      <div className="relative flex-1">
-        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-pink-400 w-4 h-4" />
-        <Input
-          type="text"
-          placeholder="Search for movies..."
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          className="pl-10 pr-10 bg-slate-800/80 border-pink-500/30 text-white placeholder-pink-300/70 focus:border-pink-400 focus:ring-2 focus:ring-pink-400/50 backdrop-blur-sm"
-        />
-        {query && (
-          <Button
-            type="button"
-            variant="ghost"
-            size="sm"
-            onClick={clearSearch}
-            className="absolute right-1 top-1/2 transform -translate-y-1/2 h-6 w-6 p-0 text-pink-400 hover:text-pink-300 hover:bg-pink-500/20"
-          >
-            <X className="w-4 h-4" />
-          </Button>
-        )}
+    <form onSubmit={handleSubmit} className="relative group w-full max-w-xl">
+      <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
+        <Search className="h-5 w-5 text-white/30 group-focus-within:text-plasma-orange transition-colors" />
       </div>
-      <Button 
-        type="submit" 
-        className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white font-semibold shadow-lg shadow-pink-500/25 transition-all duration-300 hover:shadow-pink-500/40 hover:scale-105"
+      <input
+        type="text"
+        placeholder="Search for movies, actors, directors..."
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        className="block w-full pl-12 pr-12 py-4 bg-white/5 border border-white/5 rounded-2xl text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-plasma-orange/50 focus:bg-white/10 focus:border-plasma-orange/30 transition-all text-sm font-medium backdrop-blur-md"
+      />
+      {query && (
+        <button
+          type="button"
+          onClick={clearSearch}
+          className="absolute inset-y-0 right-16 px-4 flex items-center text-white/30 hover:text-white transition-colors"
+        >
+          <X className="h-5 w-5" />
+        </button>
+      )}
+      <button
+        type="submit"
         disabled={!query.trim()}
+        className="absolute right-2 top-2 bottom-2 px-6 bg-plasma-orange hover:bg-plasma-orange/90 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-xl font-bold text-xs transition-all tracking-wider"
       >
-        Search
-      </Button>
+        SEARCH
+      </button>
     </form>
   );
 };
