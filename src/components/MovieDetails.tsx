@@ -95,13 +95,13 @@ export const MovieDetails = ({ movie, onBack }: MovieDetailsProps) => {
 
       <button 
         onClick={onBack} 
-        className="group flex items-center space-x-3 px-6 py-3 bg-white/5 hover:bg-plasma-orange text-white rounded-2xl transition-all border border-white/5"
+        className="group flex items-center space-x-3 px-4 sm:px-6 py-2.5 sm:py-3 bg-white/5 hover:bg-plasma-orange text-white rounded-xl sm:rounded-2xl transition-all border border-white/5 text-sm sm:text-base"
       >
-        <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-        <span className="font-bold">Back to Results</span>
+        <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 group-hover:-translate-x-1 transition-transform" />
+        <span className="font-bold">Back</span>
       </button>
 
-      <div className="grid lg:grid-cols-3 gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
         {/* Movie Poster */}
         <div className="lg:col-span-1">
           <div className="relative group rounded-[2.5rem] overflow-hidden shadow-2xl shadow-plasma-orange/10 border border-white/5">
@@ -139,7 +139,7 @@ export const MovieDetails = ({ movie, onBack }: MovieDetailsProps) => {
                </div>
             </div>
 
-            <h1 className="text-6xl font-black text-white leading-tight tracking-tighter">
+            <h1 className="text-3xl sm:text-6xl font-black text-white leading-tight tracking-tighter">
               {details.Title}
             </h1>
             
@@ -168,9 +168,9 @@ export const MovieDetails = ({ movie, onBack }: MovieDetailsProps) => {
             ))}
           </div>
 
-          <div className="space-y-4 p-8 bg-white/5 border border-white/5 rounded-[2rem] backdrop-blur-sm">
+          <div className="space-y-4 p-6 sm:p-8 bg-white/5 border border-white/5 rounded-[1.5rem] sm:rounded-[2rem] backdrop-blur-sm">
             <h3 className="text-xs font-black text-plasma-orange uppercase tracking-[0.2em]">Storyline</h3>
-            <p className="text-white/70 leading-relaxed text-lg font-medium italic">
+            <p className="text-white/70 leading-relaxed text-sm sm:text-lg font-medium italic">
               "{details.Plot}"
             </p>
           </div>
@@ -192,19 +192,19 @@ export const MovieDetails = ({ movie, onBack }: MovieDetailsProps) => {
             </div>
           </div>
 
-          <div className="flex items-center justify-between pt-8 border-t border-white/5">
-             <div className="flex space-x-8">
+          <div className="flex items-center justify-between pt-6 sm:pt-8 border-t border-white/5">
+             <div className="flex space-x-4 sm:space-x-8">
                 <div>
-                   <p className="text-[10px] font-black text-white/30 uppercase tracking-widest mb-1">Writer</p>
-                   <p className="text-sm font-bold text-white">{details.Writer.split(',')[0]}</p>
+                   <p className="text-[9px] sm:text-[10px] font-black text-white/30 uppercase tracking-widest mb-1">Writer</p>
+                   <p className="text-xs sm:text-sm font-bold text-white line-clamp-1">{details.Writer.split(',')[0]}</p>
                 </div>
                 <div>
-                   <p className="text-[10px] font-black text-white/30 uppercase tracking-widest mb-1">Production</p>
-                   <p className="text-sm font-bold text-white">{details.Production || 'N/A'}</p>
+                   <p className="text-[9px] sm:text-[10px] font-black text-white/30 uppercase tracking-widest mb-1">Production</p>
+                   <p className="text-xs sm:text-sm font-bold text-white line-clamp-1">{details.Production || 'N/A'}</p>
                 </div>
              </div>
-             <button className="p-4 bg-white/5 hover:bg-white/10 rounded-2xl transition-all group">
-                <Share2 className="w-5 h-5 text-white/40 group-hover:text-white transition-colors" />
+             <button className="p-3 sm:p-4 bg-white/5 hover:bg-white/10 rounded-xl sm:rounded-2xl transition-all group shrink-0">
+                <Share2 className="w-4 h-4 sm:w-5 sm:h-5 text-white/40 group-hover:text-white transition-colors" />
              </button>
           </div>
         </div>

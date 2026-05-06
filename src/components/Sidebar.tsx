@@ -11,7 +11,7 @@ export const Sidebar = () => {
   ];
 
   return (
-    <aside className="fixed left-0 top-0 h-screen w-20 flex flex-col items-center py-8 bg-core-black border-r border-white/5 z-50">
+    <aside className="fixed left-0 top-0 h-screen w-20 hidden lg:flex flex-col items-center py-8 bg-core-black border-r border-white/5 z-50">
       <div className="mb-12">
         <div className="w-10 h-10 bg-plasma-orange rounded-xl flex items-center justify-center shadow-plasma">
           <Film className="w-6 h-6 text-white" />

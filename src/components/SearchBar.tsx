@@ -58,33 +58,35 @@ export const SearchBar = ({ onSearch, setLoading, onClearSelection }: SearchBarP
   };
 
   return (
-    <form onSubmit={handleSubmit} className="relative group w-full max-w-xl">
-      <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
-        <Search className="h-5 w-5 text-white/30 group-focus-within:text-plasma-orange transition-colors" />
+    <form onSubmit={handleSubmit} className="relative group w-full">
+      <div className="absolute inset-y-0 left-0 pl-4 sm:pl-5 flex items-center pointer-events-none">
+        <Search className="h-4 w-4 sm:h-5 sm:w-5 text-white/30 group-focus-within:text-plasma-orange transition-colors" />
       </div>
       <input
         type="text"
-        placeholder="Search for movies, actors, directors..."
+        placeholder="Search movies..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        className="block w-full pl-12 pr-12 py-4 bg-white/5 border border-white/5 rounded-2xl text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-plasma-orange/50 focus:bg-white/10 focus:border-plasma-orange/30 transition-all text-sm font-medium backdrop-blur-md"
+        className="block w-full pl-10 sm:pl-12 pr-28 sm:pr-32 py-3.5 sm:py-4 bg-white/5 border border-white/5 rounded-2xl text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-plasma-orange/50 focus:bg-white/10 focus:border-plasma-orange/30 transition-all text-xs sm:text-sm font-medium backdrop-blur-md"
       />
-      {query && (
+      <div className="absolute inset-y-0 right-2 flex items-center space-x-1">
+        {query && (
+          <button
+            type="button"
+            onClick={clearSearch}
+            className="p-2 text-white/30 hover:text-white transition-colors"
+          >
+            <X className="h-4 w-4 sm:h-5 sm:w-5" />
+          </button>
+        )}
         <button
-          type="button"
-          onClick={clearSearch}
-          className="absolute inset-y-0 right-16 px-4 flex items-center text-white/30 hover:text-white transition-colors"
+          type="submit"
+          disabled={!query.trim()}
+          className="px-4 sm:px-6 py-2 bg-plasma-orange hover:bg-plasma-orange/90 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-xl font-bold text-[10px] sm:text-xs transition-all tracking-wider"
         >
-          <X className="h-5 w-5" />
+          SEARCH
         </button>
-      )}
-      <button
-        type="submit"
-        disabled={!query.trim()}
-        className="absolute right-2 top-2 bottom-2 px-6 bg-plasma-orange hover:bg-plasma-orange/90 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-xl font-bold text-xs transition-all tracking-wider"
-      >
-        SEARCH
-      </button>
+      </div>
     </form>
   );
 };
